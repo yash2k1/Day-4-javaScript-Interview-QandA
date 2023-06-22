@@ -78,3 +78,37 @@ console.log(obj1.about.call(obj2,'BGMI',"frontEnd dev"));//call
 console.log(obj1.about.apply(obj3,['cricket',"web dev"]));//apply
 let shub=obj1.about.bind(obj4,'chess',"AI and ML"); //bind
 console.log(shub())
+// Give an example of inheritance using function constructors?
+// function student(){
+//     this.className=4;
+//     this.schoolName="nalanda school";
+// }
+
+ // Parent constructor function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+ }
+ // Adding a method to the prototype
+ Person.prototype.getName = function() {
+    return this.name;
+ };
+ // Child constructor function
+ function Student(name, age, school) {
+    
+    // Calling the parent constructor function
+    Person.call(this, name, age);
+    this.school = school;
+ }
+ // Setting the prototype of the child constructor function
+ Student.prototype = Object.create(Person.prototype);
+ 
+ // Adding a method to the child constructor function
+ Student.prototype.whichSchool = function() {
+    return this.school;
+ };
+ const student1 = new Student("yash", 21, "nalanda school");
+ console.log(student1.name); // "nalanda school"
+ console.log(student1.age); // 21
+ console.log(student1.getName()); // "yash"
+ console.log(student1.whichSchool()); // "nalanda school"
