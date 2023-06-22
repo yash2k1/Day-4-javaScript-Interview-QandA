@@ -1,0 +1,23 @@
+body{
+    background:  rgb(82, 82, 213);
+    font-size: 28px;
+}
+.container{
+    width: 90%;
+    border-bottom: 2px solid black;
+    margin: auto;
+    margin-top: 20px;
+}
+h1{
+    width: fit-content;
+    color: red;
+    margin: auto;
+    border-bottom:2px solid rgb(255, 0, 0);
+}
+.ans{
+    margin-top: 20px;
+    color: white;
+}
+h3{
+    color: red;
+}

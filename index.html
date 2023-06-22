@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+    <title>Day-4-javaScript-Interview-QandA</title>
+
+</head>
+
+<body>
+    <h1>Day-4-javaScript-Interview-QandA</h1>
+    <!-- question 1 -->
+    <div class="container">
+        <div class="question">
+            Que.1 What are function constructors?
+        </div>
+
+        <div class="ans">
+            <div class="explaination">
+                A constructor is a special function that creates and initializes an object instance of a class. In
+                JavaScript, a constructor gets called when an object is created using the new keyword. <br>
+
+                The purpose of a constructor is to create a new object and set values for any existing object
+                properties.
+            </div>
+            <pre>
+//Constructor
+function User (name, age) {
+    this.name = name;
+    this.age = age;
+}
+var user1 = new User('yash', 21);
+console.log(user1)//user1{name:yash,age=21}
+var user2 = new User('bharat', 22);
+console.log(user2)//user1{name:bharat,age=22}
+
+            </pre>
+        </div>
+    </div>
+    <!-- question 2 -->
+    <div class="container">
+        <div class="question">
+            Que.2 Explain call(), apply() and, bind() methods. Give an example of call(), apply(), bind()?
+        </div>
+        <div class="ans">
+            <div class="explaination">
+                <h3>Call :</h3> The call method is used to invoked a function with a specific 'this' value, and
+                arguments
+                provide individuly. <br>
+                The call() method invokes a function in which first argument will be the object and rest of the
+                arguments required by function will be provided as an individual arguments. <br>
+                <h3>Apply : </h3> Apply is similar with call, but take argument as an array. <br>
+                The apply() method invokes a function in which first argument will be the object and rest of the
+                arguments will be passed as an array of elements. <br>
+                <h3>Bind :</h3> Bind is a function that helps you create another function that you can execute later
+                with the new context of this that is provided. <br>
+                The bind() method returns a new function and this function will be having the reference of the object
+                passed, now whenever you want to use this returned function in the code you can use it by passing rest
+                of the arguments. <br>
+            </div>
+            <pre>
+const obj1={
+    name:'bharat',
+    age:23,
+    about: function (hobies, skills){
+       return(`${this.name} is ${this.age} years old ${hobies} is the hobies and ${skills} is skill`)
+       }
+}
+const obj2={
+    name:'yash',
+    age:21,
+}
+const obj3={
+    name:'prince',
+    age:22,
+}
+const obj4={
+    name:'shubham',
+    age:22,
+}
+
+console.log(obj1.about.call(obj2,'BGMI',"frontEnd dev"));//call
+console.log(obj1.about.apply(obj3,['cricket',"web dev"]));//apply
+let shub=obj1.about.bind(obj4,'chess',"AI and ML"); //bind
+console.log(shub())
+</pre>
+            <h3>Output:</h3>
+            yash is 21 years old BGMI is the hobies and frontEnd dev is skill <br>
+            prince is 22 years old cricket is the hobies and web dev is skill <br>
+            shubham is 22 years old chess is the hobies and AI and ML is skill <br>
+        </div>
+
+    </div>
+    <!-- question 3 -->
+    <div class="container">
+        <div class="question">
+            Ques.3 What is the purpose of async/await keywords?
+        </div>
+
+        <div class="ans">
+            <div class="explaination">
+                An async function is a function declared with the async keyword, and the await keyword is permitted
+                within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a
+                cleaner style, avoiding the need promise chains.
+
+            </div>
+            <pre>
+function myPromise(alpha,time){
+    return new Promise((res,rej)=>{
+     setTimeout(()=>{
+         console.log(alpha);
+         res("promise resolved");
+     },time)
+   }) 
+ 
+ }
+ async function consume(){
+      await myPromise(1,1000);
+      await myPromise(2,2000);
+      await myPromise(3,3000);
+      await myPromise(4,4000);
+     
+ }
+ consume();                
+            </pre>
+        </div>
+    </div>
+    <!-- question 4 -->
+    <div class="container">
+        <div class="question">
+            Ques.4 Give an example of inheritance using function constructors?
+        </div>
+
+        <div class="ans">
+            <div class="explaination">
+                The spread operator ... is used to expand or spread an iterable or an object
+                . this do deep copy means here array value are by by values into B
+            </div>
+            <pre>
+    let a=[5,35,2,6];
+    let b=[...a];//value of b is [5,35,2,6]
+ </pre>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
